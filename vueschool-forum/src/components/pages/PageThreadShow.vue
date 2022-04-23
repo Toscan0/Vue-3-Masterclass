@@ -1,6 +1,18 @@
 <template>
   <div class="col-large push-top">
-    <h1>{{ thread.title }}</h1>
+    <h1>
+      {{ thread.title }}
+      <router-link :to="{ name: 'ThreadEdit', id: this.id }"
+                   class="btn-green btn-small"
+                   v-slot="{ navigate }">
+        <button @click="navigate" @keypress.enter="navigate">Edit Thread</button>
+      </router-link>
+    </h1>
+    <p>
+      By <a href="#" class="link-unstyled">{{thread.author.name}}</a>, <AppDate :timestamp="thread.publishedAt" />.
+      <span style="float:right; margin-top: 2px;"
+            class="hide-mobile text-faded text-small">{{thread.repliesCount}} replies by {{thread.contributorsCount}} contributors</span>
+    </p>
 
     <post-list :posts="threadPosts" />
 
@@ -9,7 +21,6 @@
 </template>
 
 <script>
-
   import PostList from '../PostList'
   import PostEditor from '../PostEditor'
   export default {
@@ -32,7 +43,7 @@
         return this.$store.state.posts
       },
       thread() {
-        return this.threads.find(thread => thread.id === this.id) // also available under this.$route.params.id
+        return this.$store.getters.thread(this.id)
       },
       threadPosts() {
         return this.posts.filter(post => post.threadId === this.id)

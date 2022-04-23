@@ -7,22 +7,22 @@
 </template>
 
 <script>
-import ForumList from './ForumList'
+  import ForumList from './ForumList'
 
   export default {
-  components: { ForumList },
-  props: {
-    categories: {
-      required: true,
-      type: Array
-    }
-  },
-  methods: {
-    getForumsForCategory (category) {
-      return this.$store.state.forums.filter(forum => forum.categoryId === category.id)
+    components: { ForumList },
+    props: {
+      categories: {
+        required: true,
+        type: Array
+      }
+    },
+    methods: {
+      getForumsForCategory(category) {
+        return this.$store.state.forums.filter(forum => forum.categoryId === category.id)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

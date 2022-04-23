@@ -21,6 +21,7 @@ module.exports = {
     'indent': "off",
     'comma-dangle': 'off',
     'space-before-function-paren': 'off',
-    'no-multi-spaces': 'off'
+    'no-multi-spaces': 'off',
+    'eol-last': 'warn',
   }
 }
