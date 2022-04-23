@@ -18,10 +18,14 @@ module.exports = {
     'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'indent': "off",
+    indent: 'off',
     'comma-dangle': 'off',
     'space-before-function-paren': 'off',
     'no-multi-spaces': 'off',
-    'eol-last': 'warn',
+    'eol-last': 'off',
+    'spaced-comment': 'off',
+    'quotes': 'off',
+    'spaced-comment': 'off',
+    'semi': 'off',
   }
 }
