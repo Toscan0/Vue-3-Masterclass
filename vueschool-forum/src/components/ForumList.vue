@@ -30,31 +30,31 @@
 </template>
 
 <script>
-export default {
-  props: {
-    forums: {
-      required: true,
-      type: Array
+  export default {
+    props: {
+      forums: {
+        required: true,
+        type: Array
+      },
+      title: {
+        type: String,
+        default: 'Forums'
+      },
+      categoryId: {
+        required: false,
+        type: String
+      }
     },
-    title: {
-      type: String,
-      default: 'Forums'
-    },
-    categoryId: {
-      required: false,
-      type: String
-    }
-  },
-  methods: {
-    forumThreadsWord (forum) {
-      if (forum.threads?.length) {
-        return forum.threads.length > 1 ? 'threads' : 'thread'
-      } else {
-        return 'no threads'
+    methods: {
+      forumThreadsWord(forum) {
+        if (forum.threads?.length) {
+          return forum.threads.length > 1 ? 'threads' : 'thread'
+        } else {
+          return 'no threads'
+        }
       }
     }
   }
-}
 </script>
 
 <style scoped>

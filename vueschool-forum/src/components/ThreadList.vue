@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import sourceData from '../../data/data.json'
+  import sourceData from '../data/data.json'
   export default {
     props: {
       threads: {
