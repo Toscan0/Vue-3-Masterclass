@@ -24,7 +24,7 @@
       </div>
 
       <div class="post-date text-faded">
-        {{post.publishedAt}}
+        <AppDate :timestamp="post.publishedAt" />
       </div>
 
     </div>
@@ -33,25 +33,26 @@
 </template>
 
 <script>
-import sourceData from '../data/data.json'
-export default {
-  props: {
-    posts: {
-      required: true,
-      type: Array
-    }
-  },
-  data () {
-    return {
-      users: sourceData.users
-    }
-  },
-  methods: {
-    userById (userId) {
-      return this.users.find(p => p.id === userId)
+  import sourceData from '../data/data.json'
+
+  export default {
+    props: {
+      posts: {
+        required: true,
+        type: Array
+      }
+    },
+    data() {
+      return {
+        users: sourceData.users
+      }
+    },
+    methods: {
+      userById(userId) {
+        return this.users.find(p => p.id === userId)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

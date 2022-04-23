@@ -10,8 +10,8 @@
 
 <script>
   import sourceData from '../../data/data.json'
-  import PostList from '@/components/PostList'
-  import PostEditor from '@/components/PostEditor'
+  import PostList from '../PostList'
+  import PostEditor from '../PostEditor'
   export default {
     name: 'ThreadShow',
     components: {
