@@ -8,7 +8,7 @@
       <div v-for="thread in threads" :key="thread.id" class="thread">
         <div>
           <p>
-            <a href="#">{{ thread.title }}</a>
+            <router-link :to="{name: 'ThreadShow', params: {id: thread.id}}">{{ thread.title }}</router-link>
           </p>
           <p class="text-faded text-xsmall">
             By <a href="#">{{ userById(thread.userId).name }}</a>, {{ thread.publishedAt }}.
@@ -36,29 +36,29 @@
 </template>
 
 <script>
-import sourceData from '@/data.json'
-export default {
-  props: {
-    threads: {
-      type: Array,
-      required: true
-    }
-  },
-  data () {
-    return {
-      posts: sourceData.posts,
-      users: sourceData.users
-    }
-  },
-  methods: {
-    postById (postId) {
-      return this.posts.find(p => p.id === postId)
+  import sourceData from './data.json'
+  export default {
+    props: {
+      threads: {
+        type: Array,
+        required: true
+      }
     },
-    userById (userId) {
-      return this.users.find(p => p.id === userId)
+    data () {
+      return {
+        posts: sourceData.posts,
+        users: sourceData.users
+      }
+    },
+    methods: {
+      postById(postId) {
+        return this.posts.find(p => p.id === postId)
+      },
+      userById(userId) {
+        return this.users.find(p => p.id === userId)
+      }
     }
   }
-}
 </script>
 
 <style scoped>
