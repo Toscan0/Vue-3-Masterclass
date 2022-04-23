@@ -8,8 +8,8 @@
 
 <script>
 import ForumList from './ForumList'
-import sourceData from '../data/data.json'
-export default {
+
+  export default {
   components: { ForumList },
   props: {
     categories: {
@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     getForumsForCategory (category) {
-      return sourceData.forums.filter(forum => forum.categoryId === category.id)
+      return this.$store.state.forums.filter(forum => forum.categoryId === category.id)
     }
   }
 }

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import sourceData from '../../data/data.json'
+
   import PostList from '../PostList'
   import PostEditor from '../PostEditor'
   export default {
@@ -24,13 +24,13 @@
         type: String
       }
     },
-    data() {
-      return {
-        threads: sourceData.threads,
-        posts: sourceData.posts
-      }
-    },
     computed: {
+      threads() {
+        return this.$store.state.threads
+      },
+      posts() {
+        return this.$store.state.posts
+      },
       thread() {
         return this.threads.find(thread => thread.id === this.id) // also available under this.$route.params.id
       },
@@ -44,8 +44,7 @@
           ...eventData.post,
           threadId: this.id
         }
-        this.posts.push(post)
-        this.thread.posts.push(post.id)
+        this.$store.dispatch('createPost', post)
       }
     }
   }

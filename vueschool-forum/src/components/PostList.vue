@@ -33,8 +33,6 @@
 </template>
 
 <script>
-  import sourceData from '../data/data.json'
-
   export default {
     props: {
       posts: {
@@ -42,14 +40,14 @@
         type: Array
       }
     },
-    data() {
-      return {
-        users: sourceData.users
-      }
-    },
     methods: {
       userById(userId) {
         return this.users.find(p => p.id === userId)
+      }
+    },
+    computed: {
+      users() {
+        return this.$store.state.users
       }
     }
   }
