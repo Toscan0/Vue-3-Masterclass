@@ -38,7 +38,8 @@
 </template>
 
 <script>
-import sourceData from './data.json'
+  import sourceData from '../../data/data.json'
+
 export default {
   props: {
     id: {
